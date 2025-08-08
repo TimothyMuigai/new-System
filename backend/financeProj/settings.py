@@ -15,6 +15,7 @@ from pathlib import Path
 import cloudinary
 from datetime import timedelta
 from decouple import config
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -135,16 +136,21 @@ WSGI_APPLICATION = 'financeProj.wsgi.application'
 #     }
 # }
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'money_tracker',
-        'USER': 'postgres',
-        'PASSWORD': '123Went',
-        'HOST': 'localhost',
-        'PORT': '5432',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'money_tracker',
+#         'USER': 'postgres',
+#         'PASSWORD': '123Went',
+#         'HOST': 'localhost',
+#         'PORT': '5432',
+#     }
+# }
+
+DATABASES = { 
+   # the link here is the external link provided on postgresql web service db 
+   "default": dj_database_url.parse('postgresql://new_system_user:gyNf00nE7qTuQdMdCsaGDbAujo5x4ez7@dpg-d2aqopp5pdvs73c3gn00-a.oregon-postgres.render.com/new_system') 
+} 
 
 cloudinary.config(
     cloud_name = config('CLOUDINARY_CLOUD_NAME'),
