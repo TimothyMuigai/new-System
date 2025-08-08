@@ -7,7 +7,8 @@ const AuthContext = createContext();
 export default AuthContext;
 
 export const AuthProvider = ({ children }) => {
-  const baseUrl = 'http://127.0.0.1:8000';
+  // const baseUrl = 'http://127.0.0.1:8000';
+  const baseUrl = 'https://new-system.onrender.com';
 
   let [authTokens, setAuthTokens] = useState(() =>
     localStorage.getItem("authTokens")
