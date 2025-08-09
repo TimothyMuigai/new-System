@@ -31,6 +31,7 @@ export const CustomPieChart = ({ data, label, totalAmount, colors, showTextAncho
             {showTextAnchor && (
               <Label
                 content={({ viewBox }) => {
+                  if (!viewBox) return null;
                   const { cx, cy } = viewBox;
                   return (
                     <>
